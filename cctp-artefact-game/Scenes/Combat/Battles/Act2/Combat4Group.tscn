@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cag0dq1g1lacb"]
+
+[ext_resource type="Script" uid="uid://b4bq63mmb48dd" path="res://Scripts/Enemies/battle_group.gd" id="1_kc4gx"]
+[ext_resource type="PackedScene" uid="uid://b337v5beru4kn" path="res://Scenes/Combat/Enemies/gargoyle.tscn" id="2_jik1s"]
+[ext_resource type="VideoStream" uid="uid://cythkkjmt8ekl" path="res://Assets/Meta/GlitchEffect.ogv" id="4_b36xe"]
+
+[node name="Combat4Group" type="Node2D"]
+script = ExtResource("1_kc4gx")
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Gargoyle1" parent="Group" instance=ExtResource("2_jik1s")]
+position = Vector2(852, 148)
+
+[node name="Gargoyle2" parent="Group" instance=ExtResource("2_jik1s")]
+position = Vector2(851, 339)
+
+[node name="Gargoyle3" parent="Group" instance=ExtResource("2_jik1s")]
+position = Vector2(854, 541)
+
+[node name="ScreenGlitch" type="VideoStreamPlayer" parent="."]
+visible = false
+z_index = 200
+offset_left = -71.0
+offset_top = -31.0
+offset_right = 1209.0
+offset_bottom = 689.0
+stream = ExtResource("4_b36xe")
+
+[connection signal="finished" from="ScreenGlitch" to="." method="_on_screen_glitch_finished"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2o58v6he2lhv"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Bounds/entity_bounds.gd" id="1_bwwpm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mbua"]
+size = Vector2(20, 70.7)
+
+[node name="EntityBounds" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_bwwpm")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_3mbua")
+debug_color = Color(0.204537, 0.622691, 0.435307, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

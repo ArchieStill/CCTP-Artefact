@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://ch04lopqtfoli"
+path="res://.godot/imported/NarratorDragon.dialogue-55eefe5590e303a703ce2d399ebe2577.tres"
+
+[deps]
+
+source_file="res://Dialogue/Narrator/NarratorDragon.dialogue"
+dest_files=["res://.godot/imported/NarratorDragon.dialogue-55eefe5590e303a703ce2d399ebe2577.tres"]
+
+[params]
+
+defaults=true

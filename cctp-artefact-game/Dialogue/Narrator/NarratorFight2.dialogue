@@ -1,0 +1,8 @@
+~ this_is_a_node_title
+Stop it!
+If you act out of line, the game itself could break.
+set Events.FinalTalk = false
+set Global.PlayerTurn = 0
+set Events.FinalTNum = 3
+set Events.FinalTOnce = true
+=> END

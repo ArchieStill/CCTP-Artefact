@@ -1,0 +1,15 @@
+~ this_is_a_node_title
+The Mage: Did... Did we do it?
+The Warrior: YEAH! WE DID IT!
+The Cleric: The kingdom is saved at last!
+The Thief: Ha! I knew we had it in us!
+The Mage: Everyone...
+The Mage: Thank you.
+The Warrior: Don't sweat it!
+The Warrior: Now, let's head back!
+The Cleric: Of course.
+The Cleric: We're finally victorious.
+The Thief: I'm just looking forward to putting my feet up!
+The Thief: Let's go!
+set Events.Cutscene = true
+=> END

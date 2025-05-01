@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://dbwanukqarbm4"]
+
+[ext_resource type="Texture2D" uid="uid://dibuol3w5xoh7" path="res://Assets/Sprites/BattleSprites/CombatEffects/ArcaneSheet.png" id="1_d3nio"]
+[ext_resource type="Script" path="res://Scripts/Party/mana_surge.gd" id="2_xnvip"]
+[ext_resource type="AudioStream" uid="uid://c1udtb666erl4" path="res://Assets/Audio/Thunder.wav" id="3_vspiy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycllm"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(0, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_365fr"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(124, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke43f"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(248, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kio35"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(372, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2wbq"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(496, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn7g7"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(620, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1w08"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(744, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkcdd"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(620, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlmpd"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(744, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtlej"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(620, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ifbn"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(744, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gn1s"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(620, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c41cj"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(496, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn57w"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(372, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmp35"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(248, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov0a3"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(124, 0, 124, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm6cu"]
+atlas = ExtResource("1_d3nio")
+region = Rect2(0, 0, 124, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aktvb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycllm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_365fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke43f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kio35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2wbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn7g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1w08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkcdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlmpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtlej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ifbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gn1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c41cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn57w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmp35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov0a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm6cu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ManaSurgeSprite" type="AnimatedSprite2D"]
+visible = false
+position = Vector2(850, 331)
+scale = Vector2(5.93518, 5.93518)
+sprite_frames = SubResource("SpriteFrames_aktvb")
+frame = 16
+frame_progress = 1.0
+script = ExtResource("2_xnvip")
+
+[node name="ManaSurgeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vspiy")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://m3xo5is0v6xu"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Act2/final_glitch.gd" id="1_fhamy"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="1_u1rsq"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="3_par42"]
+
+[node name="FinalGlitch" type="Node2D"]
+script = ExtResource("1_fhamy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="CanvasLayer"]
+z_index = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+stream = ExtResource("1_u1rsq")
+autoplay = true
+loop = true
+
+[node name="Pre-Dialogue" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_par42")
+volume_db = 3.0
+pitch_scale = 0.5
+autoplay = true
+
+[connection signal="timeout" from="Pre-Dialogue" to="." method="_on_pre_dialogue_timeout"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
+[connection signal="finished" from="GlitchSFX" to="." method="_on_glitch_sfx_finished"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://byldsce5kd6aj"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Act2/final_combat.gd" id="1_8nup0"]
+[ext_resource type="Texture2D" uid="uid://cfj5b48m3fsev" path="res://Assets/Sprites/Areas/CaveBG.png" id="1_x6qes"]
+[ext_resource type="PackedScene" uid="uid://brbsj00fs0ip5" path="res://Scenes/Party/player_group.tscn" id="3_ne30n"]
+[ext_resource type="PackedScene" uid="uid://bktr8ca86h3ha" path="res://Scenes/Combat/Battles/Act2/FinalGroup.tscn" id="3_uktvq"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="6_gm1is"]
+
+[node name="FinalCombat" type="Node2D"]
+script = ExtResource("1_8nup0")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.443064, 0.133716, 0, 1)
+texture_filter = 1
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1153.0
+offset_bottom = 733.0
+texture = ExtResource("1_x6qes")
+
+[node name="PlayerGroup" parent="." instance=ExtResource("3_ne30n")]
+
+[node name="FinalGroup" parent="." instance=ExtResource("3_uktvq")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("6_gm1is")
+
+[node name="DragonDespawn" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="TimeForN" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimeForP" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="finished" from="CanvasLayer/Glitch" to="." method="_on_glitch_finished"]
+[connection signal="timeout" from="DragonDespawn" to="." method="_on_dragon_despawn_timeout"]
+[connection signal="timeout" from="TimeForN" to="." method="_on_time_for_n_timeout"]
+[connection signal="timeout" from="TimeForP" to="." method="_on_time_for_p_timeout"]
+
+[editable path="FinalGroup"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba8epkhv3sjk4"]
+
+[ext_resource type="Script" path="res://Scripts/Party/mp.gd" id="1_ntejr"]
+[ext_resource type="StyleBox" uid="uid://ciuwm57yy8ima" path="res://Assets/Styles/Bars/MPBar.tres" id="1_tww12"]
+[ext_resource type="FontFile" uid="uid://bu64if06n8ogu" path="res://Assets/MainFont.ttf" id="2_3rmws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yn453"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18dby"]
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+
+[node name="MP" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ntejr")
+
+[node name="MPBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 526.0
+offset_right = 449.0
+offset_bottom = 575.0
+rotation = -1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_yn453")
+theme_override_styles/fill = ExtResource("1_tww12")
+max_value = 8.0
+show_percentage = false
+
+[node name="MPText" type="Label" parent="MPBar"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = -3.0
+offset_right = 114.0
+offset_bottom = 28.0
+rotation = 1.5708
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_3rmws")
+theme_override_font_sizes/font_size = 28
+text = "MP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MPNum" type="Label" parent="MPBar"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -4.0
+offset_right = 91.0
+offset_bottom = 27.0
+rotation = 1.5708
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_3rmws")
+theme_override_font_sizes/font_size = 28
+text = "0/8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MPLimit" type="Panel" parent="MPBar"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 2.0
+offset_right = 317.0
+offset_bottom = 8.0
+rotation = 1.5708
+theme_override_styles/panel = SubResource("StyleBoxFlat_18dby")

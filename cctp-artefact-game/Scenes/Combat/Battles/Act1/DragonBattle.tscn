@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcg0x8fgs6no4"]
+
+[ext_resource type="Texture2D" uid="uid://cfj5b48m3fsev" path="res://Assets/Sprites/Areas/CaveBG.png" id="1_x2qlq"]
+[ext_resource type="PackedScene" uid="uid://bliurwxa72ipg" path="res://Scenes/Party/party_group.tscn" id="2_iq47w"]
+[ext_resource type="PackedScene" uid="uid://d06fguq8rg662" path="res://Scenes/Combat/Battles/Act1/DragonGroup.tscn" id="3_gl2v6"]
+
+[node name="DragonBattle" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.443064, 0.133716, 0, 1)
+texture_filter = 1
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1153.0
+offset_bottom = 733.0
+texture = ExtResource("1_x2qlq")
+
+[node name="PartyGroup" parent="." instance=ExtResource("2_iq47w")]
+
+[node name="DragonGroup" parent="." instance=ExtResource("3_gl2v6")]

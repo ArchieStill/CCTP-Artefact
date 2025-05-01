@@ -1,0 +1,9 @@
+~ this_is_a_node_title
+{{Global.name_caps}}!!!
+set Events.FinalDialoguePersist = false
+THIS GAME CAN'T END YET!!!!!
+set Events.FinalTalk = false
+set Global.PlayerTurn = 0
+set Events.FinalTNum = 8
+set Events.FinalTOnce = true
+=> END

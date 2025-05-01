@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bktr8ca86h3ha"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/final_group.gd" id="1_x5a1p"]
+[ext_resource type="PackedScene" uid="uid://cr47oyilulr35" path="res://Scenes/Combat/Enemies/dragon.tscn" id="2_gno0p"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="3_lldav"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="4_e0too"]
+[ext_resource type="AudioStream" uid="uid://d4hlyhas7d0m4" path="res://Assets/Audio/Music/FinalBattleBetterLoop.mp3" id="5_j8v56"]
+
+[node name="FinalGroup" type="Node2D"]
+script = ExtResource("1_x5a1p")
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Dragon" parent="Group" instance=ExtResource("2_gno0p")]
+position = Vector2(853, 370)
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+stream = ExtResource("3_lldav")
+
+[node name="FinalGlitch" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+stream = ExtResource("3_lldav")
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e0too")
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_j8v56")
+autoplay = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="finished" from="CanvasLayer/FinalGlitch" to="." method="_on_final_glitch_finished"]

@@ -1,0 +1,14 @@
+~ this_is_a_node_title
+...
+There's nothing here.
+No boss to fight.
+This is it.
+After all, once you beat the boss, the game ends.
+We can't have that.
+What's the point of fun if you know it'll end?
+So we'll remain here.
+Just you and me, {{Global.player_name}}.
+Having fun.
+Together.
+set Events.TwoEvents = 50
+=> END

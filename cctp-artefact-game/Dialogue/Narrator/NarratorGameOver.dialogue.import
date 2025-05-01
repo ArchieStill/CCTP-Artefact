@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://07xf7cggev5w"
+path="res://.godot/imported/NarratorGameOver.dialogue-f77cb4f9804f07c128b6ed4fbcdeded4.tres"
+
+[deps]
+
+source_file="res://Dialogue/Narrator/NarratorGameOver.dialogue"
+dest_files=["res://.godot/imported/NarratorGameOver.dialogue-f77cb4f9804f07c128b6ed4fbcdeded4.tres"]
+
+[params]
+
+defaults=true

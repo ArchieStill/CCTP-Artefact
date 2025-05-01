@@ -1,0 +1,7 @@
+~ this_is_a_node_title
+The Warrior: Hey guys?
+The Warrior: Is it getting hotter for you all as well?
+The Mage: You're right. The heat is definitely increasing.
+The Cleric: We must be getting closer...
+set Global.InDialogue = false
+=> END

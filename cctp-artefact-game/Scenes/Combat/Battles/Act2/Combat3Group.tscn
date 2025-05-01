@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd4x5aln0a4qu"]
+
+[ext_resource type="Script" uid="uid://b4bq63mmb48dd" path="res://Scripts/Enemies/battle_group.gd" id="1_x3x7s"]
+[ext_resource type="PackedScene" uid="uid://b337v5beru4kn" path="res://Scenes/Combat/Enemies/gargoyle.tscn" id="2_3dfb0"]
+[ext_resource type="PackedScene" uid="uid://0dpwl1jxnaip" path="res://Scenes/Combat/Enemies/eyeball.tscn" id="3_u2vyq"]
+[ext_resource type="PackedScene" uid="uid://be7rt3yohci25" path="res://Scenes/Combat/Enemies/skeleton.tscn" id="4_51s2n"]
+[ext_resource type="VideoStream" uid="uid://cythkkjmt8ekl" path="res://Assets/Meta/GlitchEffect.ogv" id="6_cb88u"]
+
+[node name="Combat3Group" type="Node2D"]
+script = ExtResource("1_x3x7s")
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Gargoyle" parent="Group" instance=ExtResource("2_3dfb0")]
+position = Vector2(852, 148)
+
+[node name="Eyeball" parent="Group" instance=ExtResource("3_u2vyq")]
+position = Vector2(846, 337)
+
+[node name="Skeleton" parent="Group" instance=ExtResource("4_51s2n")]
+position = Vector2(845, 505)
+
+[node name="Hidden1" parent="Group" instance=ExtResource("4_51s2n")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1004, 235)
+
+[node name="Hidden2" parent="Group" instance=ExtResource("3_u2vyq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1004, 422)
+
+[node name="ScreenGlitch" type="VideoStreamPlayer" parent="."]
+visible = false
+z_index = 200
+offset_left = -71.0
+offset_top = -31.0
+offset_right = 1209.0
+offset_bottom = 689.0
+stream = ExtResource("6_cb88u")
+
+[connection signal="finished" from="ScreenGlitch" to="." method="_on_screen_glitch_finished"]

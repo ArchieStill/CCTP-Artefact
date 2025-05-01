@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://meiwhqfd16ow"
+path="res://.godot/imported/NarratorFight3.dialogue-433eb165492a0ad5dee5432e2a86ffd3.tres"
+
+[deps]
+
+source_file="res://Dialogue/Narrator/NarratorFight3.dialogue"
+dest_files=["res://.godot/imported/NarratorFight3.dialogue-433eb165492a0ad5dee5432e2a86ffd3.tres"]
+
+[params]
+
+defaults=true

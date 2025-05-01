@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ghmq6w8jp0pj"]
+
+[ext_resource type="Texture2D" uid="uid://cmog7qraqrn1r" path="res://Assets/Sprites/Backgrounds/CastleBG.png" id="1_4hjxa"]
+[ext_resource type="PackedScene" uid="uid://g774m13tvda0" path="res://Scenes/skeleton_group.tscn" id="1_gjy7d"]
+[ext_resource type="PackedScene" uid="uid://bliurwxa72ipg" path="res://Scenes/Party/party_group.tscn" id="2_v5oe4"]
+
+[node name="Battle1" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.277528, 0.277528, 0.277528, 1)
+texture_filter = 1
+offset_left = -236.0
+offset_top = -55.0
+offset_right = 1293.0
+offset_bottom = 1025.0
+texture = ExtResource("1_4hjxa")
+
+[node name="SkeletonGroup" parent="." instance=ExtResource("1_gjy7d")]
+
+[node name="PartyGroup" parent="." instance=ExtResource("2_v5oe4")]

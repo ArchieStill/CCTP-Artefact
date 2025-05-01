@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ihxt3agp1b5"]
+
+[ext_resource type="Texture2D" uid="uid://cfj5b48m3fsev" path="res://Assets/Sprites/Areas/CaveBG.png" id="1_qesx5"]
+[ext_resource type="PackedScene" uid="uid://bliurwxa72ipg" path="res://Scenes/Party/party_group.tscn" id="2_b5epn"]
+[ext_resource type="PackedScene" uid="uid://dlxlkenddp7fq" path="res://Scenes/Combat/Battles/Act1/Battle3Group.tscn" id="3_w8wfh"]
+
+[node name="Battle3" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.173411, 0.165384, 0.0910876, 1)
+texture_filter = 1
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1153.0
+offset_bottom = 733.0
+texture = ExtResource("1_qesx5")
+
+[node name="PartyGroup" parent="." instance=ExtResource("2_b5epn")]
+
+[node name="Battle3Group" parent="." instance=ExtResource("3_w8wfh")]

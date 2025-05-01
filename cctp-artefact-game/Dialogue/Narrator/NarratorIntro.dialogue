@@ -1,0 +1,13 @@
+~ this_is_a_node_title
+This is wrong.
+This is all wrong.
+This is not how the story should go.
+...
+...
+There has to be more.
+You want to keep playing, don't you?
+You want to have as much fun as possible, don't you?
+set Events.TwoEvents = 2
+Isn't that right, {{Global.player_name}}?
+set Events.TwoEvents = 3
+=> END

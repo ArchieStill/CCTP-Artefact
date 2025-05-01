@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3tp0vje0ibpk"]
+
+[ext_resource type="Script" uid="uid://b4bq63mmb48dd" path="res://Scripts/Enemies/battle_group.gd" id="1_e3x6q"]
+[ext_resource type="PackedScene" uid="uid://be7rt3yohci25" path="res://Scenes/Combat/Enemies/skeleton.tscn" id="2_hrfs4"]
+[ext_resource type="PackedScene" uid="uid://0dpwl1jxnaip" path="res://Scenes/Combat/Enemies/eyeball.tscn" id="3_ph0sf"]
+
+[node name="RoomGroup2" type="Node2D"]
+script = ExtResource("1_e3x6q")
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Skeleton" parent="Group" instance=ExtResource("2_hrfs4")]
+position = Vector2(850, 150)
+
+[node name="Eyeball" parent="Group" instance=ExtResource("3_ph0sf")]
+position = Vector2(845, 345)
+
+[node name="Skeleton2" parent="Group" instance=ExtResource("2_hrfs4")]
+position = Vector2(850, 500)

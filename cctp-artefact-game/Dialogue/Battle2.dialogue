@@ -1,0 +1,9 @@
+~ this_is_a_node_title
+set Global.InDialogue = true
+The Thief: Wait, what's that?!
+The Mage: More enemies! 
+The Warrior: I'll smash them all up!
+The Cleric: Alright, let's do this!
+set Events.OneEvents = 1
+set Global.Battle = "Battle2"
+=> END

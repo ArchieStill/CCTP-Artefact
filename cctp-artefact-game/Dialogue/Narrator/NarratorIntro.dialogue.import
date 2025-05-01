@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c7njpug858mpv"
+path="res://.godot/imported/NarratorIntro.dialogue-b85f332e2b5601956593b1bea81f6412.tres"
+
+[deps]
+
+source_file="res://Dialogue/Narrator/NarratorIntro.dialogue"
+dest_files=["res://.godot/imported/NarratorIntro.dialogue-b85f332e2b5601956593b1bea81f6412.tres"]
+
+[params]
+
+defaults=true

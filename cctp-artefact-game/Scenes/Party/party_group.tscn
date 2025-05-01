@@ -1,0 +1,146 @@
+[gd_scene load_steps=15 format=3 uid="uid://bliurwxa72ipg"]
+
+[ext_resource type="PackedScene" uid="uid://dnuuorvpw4hlx" path="res://Scenes/Party/Characters/warrior.tscn" id="1_lpiei"]
+[ext_resource type="Script" path="res://Scripts/Party/party_group.gd" id="1_rtxle"]
+[ext_resource type="PackedScene" uid="uid://c4061j2swyhgh" path="res://Scenes/Party/Characters/mage.tscn" id="2_ho31n"]
+[ext_resource type="PackedScene" uid="uid://d12dmd1vuwikj" path="res://Scenes/Party/Characters/cleric.tscn" id="3_x5pwi"]
+[ext_resource type="PackedScene" uid="uid://bjqg1ttx35yjr" path="res://Scenes/Party/Characters/thief.tscn" id="4_drep5"]
+[ext_resource type="PackedScene" uid="uid://ba8epkhv3sjk4" path="res://Scenes/Party/mp.tscn" id="6_x2a7v"]
+[ext_resource type="FontFile" uid="uid://bu64if06n8ogu" path="res://Assets/MainFont.ttf" id="7_1sram"]
+[ext_resource type="PackedScene" uid="uid://dbwanukqarbm4" path="res://Scenes/Party/mana_surge.tscn" id="8_hv4hl"]
+[ext_resource type="PackedScene" uid="uid://cvm1m1w53eru1" path="res://Scenes/Party/healing_wave.tscn" id="9_2l4wr"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="10_3ub4w"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="11_6yn5b"]
+[ext_resource type="AudioStream" uid="uid://b28petxxs3sph" path="res://Assets/Audio/Music/LoopedBattle.mp3" id="12_0x035"]
+[ext_resource type="AudioStream" uid="uid://d4hlyhas7d0m4" path="res://Assets/Audio/Music/FinalBattleBetterLoop.mp3" id="13_n1ylc"]
+[ext_resource type="AudioStream" uid="uid://jcl6koem571h" path="res://Assets/Audio/Level Up.wav" id="13_wtacc"]
+
+[node name="PartyGroup" type="Node2D" groups=["Player"]]
+script = ExtResource("1_rtxle")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 150.0
+offset_top = 102.0
+offset_right = 190.0
+offset_bottom = 552.0
+theme_override_constants/separation = 150
+
+[node name="Mage" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Mage" parent="VBoxContainer/Mage" instance=ExtResource("2_ho31n")]
+scale = Vector2(1.25, 1.25)
+
+[node name="Warrior" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Warrior" parent="VBoxContainer/Warrior" instance=ExtResource("1_lpiei")]
+scale = Vector2(1.25, 1.25)
+
+[node name="Cleric" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Cleric" parent="VBoxContainer/Cleric" instance=ExtResource("3_x5pwi")]
+scale = Vector2(1.25, 1.25)
+
+[node name="Thief" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Thief" parent="VBoxContainer/Thief" instance=ExtResource("4_drep5")]
+scale = Vector2(1.25, 1.25)
+
+[node name="MP" parent="." instance=ExtResource("6_x2a7v")]
+
+[node name="YOUWIN" type="ColorRect" parent="."]
+visible = false
+z_index = 4096
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 1159.0
+offset_bottom = 654.0
+color = Color(0.140447, 0.140447, 0.140447, 0.654)
+
+[node name="Label" type="Label" parent="YOUWIN"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_1sram")
+theme_override_font_sizes/font_size = 125
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinTimer" type="Timer" parent="YOUWIN"]
+wait_time = 2.0
+one_shot = true
+
+[node name="YOULOSE" type="ColorRect" parent="."]
+visible = false
+z_index = 4096
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 1159.0
+offset_bottom = 654.0
+color = Color(0.140447, 0.140447, 0.140447, 0.654)
+
+[node name="Label" type="Label" parent="YOULOSE"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_1sram")
+theme_override_font_sizes/font_size = 100
+text = "The party has fallen..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseTimer" type="Timer" parent="YOULOSE"]
+wait_time = 3.0
+one_shot = true
+
+[node name="ManaSurgeSprite" parent="." instance=ExtResource("8_hv4hl")]
+
+[node name="HealingWaveSprite" parent="." instance=ExtResource("9_2l4wr")]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="."]
+z_index = 4096
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+stream = ExtResource("10_3ub4w")
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_6yn5b")
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0x035")
+autoplay = true
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_n1ylc")
+autoplay = true
+
+[node name="WinSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wtacc")
+volume_db = -5.0
+
+[connection signal="timeout" from="YOUWIN/WinTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="YOULOSE/LoseTimer" to="." method="_on_lose_timer_timeout"]
+[connection signal="finished" from="Glitch" to="." method="_on_glitch_finished"]

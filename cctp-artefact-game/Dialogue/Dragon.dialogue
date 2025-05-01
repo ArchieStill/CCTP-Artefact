@@ -1,0 +1,9 @@
+~ this_is_a_node_title
+GGRRRROOAAAARRGGHH!!!!
+The Mage: The Dragon!
+The Warrior: Get ready everyone!
+The Cleric: We can do this!
+The Thief: Let's finish this!
+set Events.OneEvents = 1
+set Global.Battle = "Dragon"
+=> END

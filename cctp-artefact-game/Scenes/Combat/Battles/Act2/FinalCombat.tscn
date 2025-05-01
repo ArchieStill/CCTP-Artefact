@@ -1,0 +1,229 @@
+[gd_scene load_steps=25 format=3 uid="uid://byldsce5kd6aj"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Act2/final_combat.gd" id="1_8nup0"]
+[ext_resource type="Texture2D" uid="uid://cfj5b48m3fsev" path="res://Assets/Sprites/Areas/CaveBG.png" id="1_x6qes"]
+[ext_resource type="PackedScene" uid="uid://brbsj00fs0ip5" path="res://Scenes/Party/player_group.tscn" id="3_ne30n"]
+[ext_resource type="PackedScene" uid="uid://bktr8ca86h3ha" path="res://Scenes/Combat/Battles/Act2/FinalGroup.tscn" id="3_uktvq"]
+[ext_resource type="PackedScene" uid="uid://btvjv40nthnhe" path="res://Scenes/Party/Characters/playerfinal.tscn" id="6_4whwx"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="6_gm1is"]
+[ext_resource type="Texture2D" uid="uid://vwgnv76sfgk4" path="res://Assets/Meta/Crack1.png" id="7_euooy"]
+[ext_resource type="Texture2D" uid="uid://cdprib03a32t8" path="res://Assets/Meta/Crack2.png" id="8_x01nj"]
+[ext_resource type="Texture2D" uid="uid://wky5twqh53l0" path="res://Assets/Meta/Crack3.png" id="9_gt4f8"]
+[ext_resource type="Texture2D" uid="uid://bpp1ldnnttbee" path="res://Assets/Meta/Crack4.png" id="10_oocay"]
+[ext_resource type="PackedScene" uid="uid://bl2c16jldv6ql" path="res://Scenes/Combat/Battles/Act2/FinalMisc/exit.tscn" id="10_pusei"]
+[ext_resource type="PackedScene" uid="uid://clbusmjftwtj8" path="res://Scenes/Combat/Battles/Act2/FinalTips.tscn" id="12_igejl"]
+[ext_resource type="PackedScene" uid="uid://d2o58v6he2lhv" path="res://Scenes/Areas/Bounds/entity_bounds.tscn" id="13_3bbhn"]
+[ext_resource type="AudioStream" uid="uid://b63lwmnkguhyn" path="res://Assets/Audio/Critical Hit 2.wav" id="14_8pwmi"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="14_dvis0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7wtwm"]
+distance = 4.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_421ox"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qwft5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paurj"]
+size = Vector2(46.1917, 47.8847)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxigr"]
+size = Vector2(31.99, 26.2508)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arq2v"]
+size = Vector2(50.0231, 21.871)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8852"]
+size = Vector2(122, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iawex"]
+size = Vector2(138, 529)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0biab"]
+size = Vector2(716.75, 65)
+
+[node name="FinalCombat" type="Node2D"]
+script = ExtResource("1_8nup0")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.443064, 0.133716, 0, 1)
+texture_filter = 1
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1153.0
+offset_bottom = 733.0
+texture = ExtResource("1_x6qes")
+
+[node name="PlayerGroup" parent="." instance=ExtResource("3_ne30n")]
+
+[node name="FinalGroup" parent="." instance=ExtResource("3_uktvq")]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="."]
+z_index = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+stream = ExtResource("6_gm1is")
+
+[node name="ControlGlitch" type="VideoStreamPlayer" parent="."]
+z_index = 1
+offset_left = -3.0
+offset_top = 5.0
+offset_right = 1277.0
+offset_bottom = 725.0
+mouse_filter = 2
+stream = ExtResource("6_gm1is")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="DragonDespawn" type="Timer" parent="Timers"]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="TimeForN" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimeForP" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="SwitchTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ControlsTimer" type="Timer" parent="Timers"]
+wait_time = 4.0
+one_shot = true
+
+[node name="ExitTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="PlayerFinal" parent="." instance=ExtResource("6_4whwx")]
+visible = false
+position = Vector2(165, 329)
+
+[node name="ScreenBounds" type="StaticBody2D" parent="."]
+position = Vector2(104, 651)
+
+[node name="Bottom" type="CollisionShape2D" parent="ScreenBounds"]
+shape = SubResource("WorldBoundaryShape2D_7wtwm")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBounds"]
+position = Vector2(-101, -174)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_421ox")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBounds"]
+position = Vector2(1042, -122)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_qwft5")
+
+[node name="Cracks" type="Node2D" parent="."]
+
+[node name="Crack1" type="Sprite2D" parent="Cracks"]
+visible = false
+position = Vector2(1025, 547)
+rotation = -0.496525
+scale = Vector2(4, 4)
+texture = ExtResource("7_euooy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cracks/Crack1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cracks/Crack1/StaticBody2D"]
+position = Vector2(-2.09219, 0.946381)
+rotation = 0.494702
+shape = SubResource("RectangleShape2D_paurj")
+
+[node name="Crack2" type="Sprite2D" parent="Cracks"]
+visible = false
+position = Vector2(80, 53)
+rotation = -0.290803
+scale = Vector2(3.27974, 3.20728)
+texture = ExtResource("8_x01nj")
+
+[node name="Crack3" type="Sprite2D" parent="Cracks"]
+visible = false
+position = Vector2(59, 533)
+rotation = -0.290803
+scale = Vector2(4, 4)
+texture = ExtResource("9_gt4f8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cracks/Crack3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cracks/Crack3/StaticBody2D"]
+position = Vector2(-2.56618, 2.49315)
+rotation = 0.29147
+shape = SubResource("RectangleShape2D_rxigr")
+
+[node name="Crack4" type="Sprite2D" parent="Cracks"]
+visible = false
+position = Vector2(768, 140)
+scale = Vector2(15.3929, 3.0326)
+texture = ExtResource("10_oocay")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cracks/Crack4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cracks/Crack4/StaticBody2D"]
+position = Vector2(-0.0649643, 0.935501)
+shape = SubResource("RectangleShape2D_arq2v")
+
+[node name="Exit" parent="." instance=ExtResource("10_pusei")]
+visible = false
+position = Vector2(1116, 35)
+
+[node name="HPBarColl" type="StaticBody2D" parent="."]
+position = Vector2(166, 264)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HPBarColl"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_r8852")
+disabled = true
+
+[node name="MPBarColl" type="StaticBody2D" parent="."]
+position = Vector2(44, 258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MPBarColl"]
+position = Vector2(-44, 3.5)
+shape = SubResource("RectangleShape2D_iawex")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FinalTips" parent="CanvasLayer" instance=ExtResource("12_igejl")]
+visible = false
+
+[node name="EntityBounds" parent="." instance=ExtResource("13_3bbhn")]
+position = Vector2(878, 349)
+Dialogue = "FINAL"
+
+[node name="TextColl" type="StaticBody2D" parent="."]
+position = Vector2(150, 211)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextColl"]
+position = Vector2(225.625, 111.5)
+shape = SubResource("RectangleShape2D_0biab")
+disabled = true
+
+[node name="CritSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8pwmi")
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_dvis0")
+
+[connection signal="finished" from="Glitch" to="." method="_on_glitch_finished"]
+[connection signal="finished" from="ControlGlitch" to="." method="_on_control_glitch_finished"]
+[connection signal="timeout" from="Timers/DragonDespawn" to="." method="_on_dragon_despawn_timeout"]
+[connection signal="timeout" from="Timers/TimeForN" to="." method="_on_time_for_n_timeout"]
+[connection signal="timeout" from="Timers/TimeForP" to="." method="_on_time_for_p_timeout"]
+[connection signal="timeout" from="Timers/SwitchTimer" to="." method="_on_switch_timer_timeout"]
+[connection signal="timeout" from="Timers/ControlsTimer" to="." method="_on_controls_timer_timeout"]
+[connection signal="timeout" from="Timers/ExitTimer" to="." method="_on_exit_timer_timeout"]
+[connection signal="start_attacking" from="PlayerFinal" to="." method="_on_player_final_start_attacking"]
+[connection signal="stop_attacking" from="PlayerFinal" to="." method="_on_player_final_stop_attacking"]
+[connection signal="body_entered" from="EntityBounds" to="." method="_on_entity_bounds_body_entered"]
+
+[editable path="PlayerGroup"]
+[editable path="PlayerGroup/Player"]
+[editable path="PlayerGroup/Player/ActionPane"]
+[editable path="FinalGroup"]

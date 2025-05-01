@@ -1,0 +1,17 @@
+~ start
+set Global.InDialogue = true
+The Mage: Alright guys, we're here.
+The Thief: Magic Mountain...
+The Warrior: Hmph. This dragon thing's not gonna know what hit 'im.
+The Cleric: Careful now. If you get roughed up, it'll be me that has to heal you!
+The Mage: The dragon has to pay for what it's done...
+The Warrior: Too right!
+The Thief: If the kingdom is ruined, then there'll be nothing left for me to steal!
+The Cleric: Come on, everyone.
+The Cleric: Let's do this!
+The Warrior: Yeah!
+The Mage: Yeah!
+The Thief: Yeah!
+set Global.InDialogue = false
+set Events.Room1Music = true
+=> END!

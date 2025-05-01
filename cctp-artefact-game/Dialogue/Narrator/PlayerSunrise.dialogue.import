@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://fmlrnkrnqaea"
+path="res://.godot/imported/PlayerSunrise.dialogue-18a2ec5272dc8ad85b46fc3b11adbc54.tres"
+
+[deps]
+
+source_file="res://Dialogue/Narrator/PlayerSunrise.dialogue"
+dest_files=["res://.godot/imported/PlayerSunrise.dialogue-18a2ec5272dc8ad85b46fc3b11adbc54.tres"]
+
+[params]
+
+defaults=true

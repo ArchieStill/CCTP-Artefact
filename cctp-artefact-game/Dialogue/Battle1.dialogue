@@ -1,0 +1,11 @@
+~ Battle1
+set Global.InDialogue = true
+The Thief: Guys... What's that?
+"Grrroaaaaaggh!!!"
+The Mage: It...
+The Mage: It looks like--
+The Warrior: MONSTERS!
+The Cleric: *sigh*
+The Cleric: Looks like we'll have to fight our way to the dragon!
+set Events.OneEvents = 1
+set Global.Battle = "Battle1"

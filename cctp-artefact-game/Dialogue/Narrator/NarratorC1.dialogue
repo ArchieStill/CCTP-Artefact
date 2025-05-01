@@ -1,0 +1,10 @@
+~ this_is_a_node_title
+set Events.Narrator = true
+You already know this.
+Don't worry, {{Global.player_name}}.
+I've made you strong.
+You don't need the other party members to win.
+Have fun!
+set Events.TwoEvents = 1
+set Events.Narrator = false
+=> END

@@ -1,0 +1,147 @@
+[gd_scene load_steps=22 format=3 uid="uid://bwco2ng2sbm35"]
+
+[ext_resource type="Script" path="res://Scripts/Party/healing_waveplayer.gd" id="1_5rwhw"]
+[ext_resource type="Texture2D" uid="uid://sj6487ea0y6v" path="res://Assets/Sprites/BattleSprites/CombatEffects/HealSheet.png" id="2_f3xji"]
+[ext_resource type="AudioStream" uid="uid://dq3pjts3vvdci" path="res://Assets/Audio/Aura2.wav" id="3_d1qmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wqux"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1a2o"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1nif"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k07w"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1yev"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_013pb"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6okx"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27vmg"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncd62"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca4v1"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxx77"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r1lg"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mytud"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap8dc"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en32b"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d56vu"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kno5v"]
+atlas = ExtResource("2_f3xji")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blptc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wqux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1a2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1nif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k07w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1yev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_013pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6okx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27vmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncd62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca4v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxx77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r1lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mytud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap8dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en32b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d56vu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kno5v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="HealingWaveSprite" type="Sprite2D"]
+visible = false
+script = ExtResource("1_5rwhw")
+
+[node name="P" type="AnimatedSprite2D" parent="."]
+position = Vector2(165, 340)
+sprite_frames = SubResource("SpriteFrames_blptc")
+frame = 16
+frame_progress = 1.0
+
+[node name="HealingWaveSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d1qmp")
+
+[connection signal="animation_finished" from="P" to="." method="_on_p_animation_finished"]

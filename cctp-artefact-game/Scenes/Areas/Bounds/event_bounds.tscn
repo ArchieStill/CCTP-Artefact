@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://sh86to70cuuf"]
+
+[ext_resource type="Script" uid="uid://6pute37n2qgq" path="res://Scripts/Areas/Bounds/event_bounds.gd" id="1_r6rf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mbua"]
+size = Vector2(20, 70.7)
+
+[node name="EventBounds" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_r6rf5")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_3mbua")
+debug_color = Color(0.551742, 0.433939, 0.921375, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

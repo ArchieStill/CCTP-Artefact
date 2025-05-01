@@ -1,0 +1,84 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="CCTP Artefact Game"
+run/main_scene="res://Scenes/title.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=60
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+Stats="*res://Scripts/Party/Stats.gd"
+Events="*res://Scripts/Events.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+MusicPlayer="*res://Scenes/music_player.tscn"
+
+[dialogue_manager]
+
+general/balloon_path="res://DialogueBalloon/balloon.tscn"
+
+[display]
+
+window/size/resizable=false
+window/size/borderless=true
+window/size/transparent=true
+window/per_pixel_transparency/allowed=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+Player=""
+Attack=""
+
+[input]
+
+Up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+Down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+Left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":65,"location":0,"echo":false,"script":null)
+]
+}
+Right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":68,"location":0,"echo":false,"script":null)
+]
+}
+Attack={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Dialogue/Start.dialogue", "res://Dialogue/Info.dialogue", "res://Dialogue/LavaForeshadow.dialogue", "res://Dialogue/PreACT2.dialogue", "res://Dialogue/Battle1.dialogue", "res://Dialogue/Battle2.dialogue", "res://Dialogue/Dragon.dialogue", "res://Dialogue/Battle3.dialogue", "res://Dialogue/Battle4.dialogue", "res://Dialogue/PreDragon.dialogue", "res://Dialogue/Narrator/NarratorIntro.dialogue", "res://Dialogue/Narrator/NarratorR1.dialogue", "res://Dialogue/Narrator/PlayerR1.dialogue", "res://Dialogue/Narrator/NarratorR2.dialogue", "res://Dialogue/Narrator/NarratorC1.dialogue", "res://Dialogue/Narrator/PlayerSunrise.dialogue", "res://Dialogue/Narrator/NarratorDragon.dialogue", "res://Dialogue/Narrator/NarratorFight1.dialogue", "res://Dialogue/Narrator/NarratorFight2.dialogue", "res://Dialogue/Narrator/NarratorFight3.dialogue", "res://Dialogue/Narrator/NarratorFight5.dialogue", "res://Dialogue/Narrator/NarratorFight6.dialogue", "res://Dialogue/Narrator/NarratorR3.dialogue", "res://Dialogue/Narrator/NarratorR4.dialogue", "res://Dialogue/Narrator/NarratorR5.dialogue", "res://Dialogue/Narrator/NarratorR6.dialogue", "res://Dialogue/Narrator/NarratorC3.dialogue", "res://Dialogue/Narrator/NarratorGameOver.dialogue", "res://Dialogue/Narrator/NarratorFinalGlitch.dialogue", "res://Dialogue/Narrator/NarratorR7.dialogue", "res://Dialogue/Narrator/NarratorR9.dialogue")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true

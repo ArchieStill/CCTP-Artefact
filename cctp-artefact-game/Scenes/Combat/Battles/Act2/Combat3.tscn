@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdnfmlexjo82b"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Act2/combat_3.gd" id="1_2sq6y"]
+[ext_resource type="Texture2D" uid="uid://cfj5b48m3fsev" path="res://Assets/Sprites/Areas/CaveBG.png" id="1_f44w0"]
+[ext_resource type="PackedScene" uid="uid://brbsj00fs0ip5" path="res://Scenes/Party/player_group.tscn" id="2_xmp4q"]
+[ext_resource type="PackedScene" uid="uid://bd4x5aln0a4qu" path="res://Scenes/Combat/Battles/Act2/Combat3Group.tscn" id="3_cpkg0"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="5_wtf2o"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="6_0muv7"]
+
+[node name="Combat3" type="Node2D"]
+script = ExtResource("1_2sq6y")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.173411, 0.165384, 0.0910876, 1)
+texture_filter = 1
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1153.0
+offset_bottom = 733.0
+texture = ExtResource("1_f44w0")
+
+[node name="PlayerGroup" parent="." instance=ExtResource("2_xmp4q")]
+
+[node name="Combat3Group" parent="." instance=ExtResource("3_cpkg0")]
+
+[node name="TimeToFive" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_wtf2o")
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0muv7")
+
+[connection signal="timeout" from="TimeToFive" to="." method="_on_time_to_five_timeout"]
+[connection signal="finished" from="CanvasLayer/Glitch" to="." method="_on_glitch_finished"]

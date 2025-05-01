@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlxlkenddp7fq"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/battle_group.gd" id="1_mabd1"]
+[ext_resource type="PackedScene" uid="uid://b337v5beru4kn" path="res://Scenes/Combat/Enemies/gargoyle.tscn" id="2_ckjnp"]
+[ext_resource type="PackedScene" uid="uid://0dpwl1jxnaip" path="res://Scenes/Combat/Enemies/eyeball.tscn" id="3_040uy"]
+[ext_resource type="PackedScene" uid="uid://bhjv4u1wcajc7" path="res://Scenes/Combat/Enemies/glitch.tscn" id="4_bk6fn"]
+[ext_resource type="PackedScene" uid="uid://be7rt3yohci25" path="res://Scenes/Combat/Enemies/skeleton.tscn" id="5_5drw1"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="6_5c1lg"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="7_vb800"]
+
+[node name="Battle3Group" type="Node2D"]
+script = ExtResource("1_mabd1")
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Gargoyle" parent="Group" instance=ExtResource("2_ckjnp")]
+position = Vector2(852, 148)
+
+[node name="Eyeball" parent="Group" instance=ExtResource("3_040uy")]
+position = Vector2(846, 337)
+
+[node name="Glitched" parent="Group" instance=ExtResource("5_5drw1")]
+visible = false
+position = Vector2(850, 515)
+
+[node name="Glitch" parent="." instance=ExtResource("4_bk6fn")]
+position = Vector2(852, 514)
+
+[node name="ScreenGlitch" type="VideoStreamPlayer" parent="."]
+visible = false
+z_index = 200
+offset_left = -71.0
+offset_top = -31.0
+offset_right = 1209.0
+offset_bottom = 689.0
+stream = ExtResource("6_5c1lg")
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vb800")
+
+[connection signal="mouse_entered" from="Glitch/GLButton" to="." method="_on_gl_button_mouse_entered"]
+[connection signal="finished" from="ScreenGlitch" to="." method="_on_screen_glitch_finished"]
+
+[editable path="Glitch"]

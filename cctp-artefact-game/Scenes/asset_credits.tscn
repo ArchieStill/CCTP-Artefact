@@ -1,0 +1,178 @@
+[gd_scene load_steps=2 format=3 uid="uid://34a0f1vuks11"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Act1/asset_credits.gd" id="1_q6cre"]
+
+[node name="AssetCredits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q6cre")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172833, 0.172833, 0.172833, 1)
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 554.0
+offset_right = 1122.0
+offset_bottom = 617.0
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
+[node name="SPRITES" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 127.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 40
+text = "CREDITS FOR ASSETS"
+
+[node name="SPRITES2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 977.0
+offset_top = 20.0
+offset_right = 1113.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 20
+text = "LINKS BELOW"
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 2
+offset_left = 13.0
+offset_top = 480.0
+offset_right = 946.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 20
+text = "Dragon sprite sourced from Fire Emblem: The Blazing Blade
+
+All other external sprites sourced from Fire Emblem: The Sacred Stones
+All music and sound effects also sourced from Fire Emblem: The
+Sacred Stones
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 89.0
+offset_right = 946.0
+offset_bottom = 592.0
+theme_override_constants/separation = 35
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Most character sprites created using the Fire Emblem Character Creator by 'TheFlyingMinotaur'
+"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Spoiler character sprite created by 'rvros' on itch.io
+"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Cave tileset created by 'Beast' on OpenGameArt.org
+"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Skeleton sprite created by 'JosephSeraph' on OpenGameArt.org  
+"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Attack and Skill effects created by 'Cethiel' on OpenGameArt.org
+"
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Pixel font created by 'nathan scott' on itch.io
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 953.0
+offset_top = 64.0
+offset_right = 1135.0
+offset_bottom = 466.0
+theme_override_constants/separation = 10
+
+[node name="CCLink" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Fire Emblem
+Character Creator"
+autowrap_mode = 2
+
+[node name="SpoilerLink" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Spoiler character
+sprite"
+autowrap_mode = 2
+
+[node name="CaveLink" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Cave tileset"
+autowrap_mode = 2
+
+[node name="SkeletonLink" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Skeleton sprite"
+autowrap_mode = 2
+
+[node name="EffectsLink" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Effect sprites
+(Most effects)"
+autowrap_mode = 2
+
+[node name="EffectsLink2" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Effect sprites
+(Mana Surge)"
+autowrap_mode = 2
+
+[node name="FontLink" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.670588, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Pixel font"
+autowrap_mode = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CCLink" to="." method="_on_cc_link_pressed"]
+[connection signal="pressed" from="VBoxContainer2/SpoilerLink" to="." method="_on_spoiler_link_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CaveLink" to="." method="_on_cave_link_pressed"]
+[connection signal="pressed" from="VBoxContainer2/SkeletonLink" to="." method="_on_skeleton_link_pressed"]
+[connection signal="pressed" from="VBoxContainer2/EffectsLink" to="." method="_on_effects_link_pressed"]
+[connection signal="pressed" from="VBoxContainer2/EffectsLink2" to="." method="_on_effects_link_2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/FontLink" to="." method="_on_font_link_pressed"]

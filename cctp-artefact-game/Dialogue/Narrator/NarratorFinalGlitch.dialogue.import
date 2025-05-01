@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://b5glaanh4y4wa"
+path="res://.godot/imported/NarratorFinalGlitch.dialogue-4cf88971e135f9b286ba8641ae9442ac.tres"
+
+[deps]
+
+source_file="res://Dialogue/Narrator/NarratorFinalGlitch.dialogue"
+dest_files=["res://.godot/imported/NarratorFinalGlitch.dialogue-4cf88971e135f9b286ba8641ae9442ac.tres"]
+
+[params]
+
+defaults=true

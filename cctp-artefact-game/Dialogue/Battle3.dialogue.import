@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://djn7p4veclhsy"
+path="res://.godot/imported/Battle3.dialogue-ee8a2cb9b898708d8082d678d3ef9632.tres"
+
+[deps]
+
+source_file="res://Dialogue/Battle3.dialogue"
+dest_files=["res://.godot/imported/Battle3.dialogue-ee8a2cb9b898708d8082d678d3ef9632.tres"]
+
+[params]
+
+defaults=true

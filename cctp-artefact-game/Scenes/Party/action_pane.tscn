@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwsvi6nc40vfn"]
+
+[ext_resource type="Script" path="res://Scripts/Party/action_pane.gd" id="1_6u8y0"]
+[ext_resource type="FontFile" uid="uid://bu64if06n8ogu" path="res://Assets/MainFont.ttf" id="1_fysq5"]
+[ext_resource type="AudioStream" uid="uid://dq3pjts3vvdci" path="res://Assets/Audio/Aura2.wav" id="3_nl61o"]
+
+[node name="ActionPane" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1046.0
+offset_bottom = -523.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6u8y0")
+
+[node name="Attack" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fysq5")
+theme_override_font_sizes/font_size = 30
+text = "ATTACK"
+
+[node name="Charge" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fysq5")
+theme_override_font_sizes/font_size = 30
+text = "CHARGE"
+
+[node name="Skill" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fysq5")
+theme_override_font_sizes/font_size = 30
+text = "SKILL"
+
+[node name="SkillPanel" type="Panel" parent="Skill"]
+layout_mode = 0
+offset_left = 109.0
+offset_right = 249.0
+offset_bottom = 40.0
+
+[node name="SkillName" type="Label" parent="Skill/SkillPanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 146.0
+offset_bottom = 34.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_fysq5")
+theme_override_font_sizes/font_size = 30
+
+[node name="SkillDesc" type="Label" parent="Skill/SkillPanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 20.0
+offset_right = 178.0
+offset_bottom = 51.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_fysq5")
+theme_override_font_sizes/font_size = 30
+
+[node name="TehomTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ChargeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nl61o")
+volume_db = -7.0
+
+[connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Charge" to="." method="_on_charge_pressed"]
+[connection signal="pressed" from="Skill" to="." method="_on_skill_pressed"]
+[connection signal="timeout" from="TehomTimer" to="." method="_on_tehom_timer_timeout"]

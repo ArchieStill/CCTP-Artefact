@@ -1,0 +1,6 @@
+~ this_is_a_node_title
+set Global.InDialogue = true
+I'm sure you already know how this goes.
+Why don't I speed this up for you?
+set Events.TwoEvents = 5
+=> END

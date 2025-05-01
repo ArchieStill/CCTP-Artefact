@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://btpqy8byqu8gf"
+path="res://.godot/imported/PreDragon.dialogue-c2491e44000cdbf94cb536f593c181cb.tres"
+
+[deps]
+
+source_file="res://Dialogue/PreDragon.dialogue"
+dest_files=["res://.godot/imported/PreDragon.dialogue-c2491e44000cdbf94cb536f593c181cb.tres"]
+
+[params]
+
+defaults=true

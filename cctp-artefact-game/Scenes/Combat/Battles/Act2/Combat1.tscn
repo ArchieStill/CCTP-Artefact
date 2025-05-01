@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://0sp6td0nge35"]
+
+[ext_resource type="Script" path="res://Scripts/Areas/Act2/combat_1.gd" id="1_6l2mh"]
+[ext_resource type="Texture2D" uid="uid://cfj5b48m3fsev" path="res://Assets/Sprites/Areas/CaveBG.png" id="1_rhia8"]
+[ext_resource type="PackedScene" uid="uid://sq8bga8b2wc4" path="res://Scenes/Combat/Battles/Act2/Combat1Group.tscn" id="3_fbe7t"]
+[ext_resource type="PackedScene" uid="uid://brbsj00fs0ip5" path="res://Scenes/Party/player_group.tscn" id="4_d4c5x"]
+[ext_resource type="PackedScene" uid="uid://cg8a4dhggs7gx" path="res://Scenes/Combat/Battles/Act2/CombatTips.tscn" id="4_uvk2q"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="6_wg2ww"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="7_fcyoj"]
+
+[node name="Combat1" type="Node2D"]
+script = ExtResource("1_6l2mh")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.173411, 0.165384, 0.0910876, 1)
+texture_filter = 1
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1153.0
+offset_bottom = 733.0
+texture = ExtResource("1_rhia8")
+
+[node name="PlayerGroup" parent="." instance=ExtResource("4_d4c5x")]
+
+[node name="Combat1Group" parent="." instance=ExtResource("3_fbe7t")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CombatTips" parent="CanvasLayer" instance=ExtResource("4_uvk2q")]
+
+[node name="Glitch" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("6_wg2ww")
+
+[node name="TimeForN" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fcyoj")
+
+[connection signal="finished" from="CanvasLayer/Glitch" to="." method="_on_glitch_finished"]
+[connection signal="timeout" from="TimeForN" to="." method="_on_time_for_n_timeout"]

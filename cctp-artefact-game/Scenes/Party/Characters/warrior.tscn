@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=3 uid="uid://dnuuorvpw4hlx"]
+
+[ext_resource type="Script" path="res://Scripts/Party/warrior.gd" id="1_8c7sq"]
+[ext_resource type="Texture2D" uid="uid://bc2db5w10cvxs" path="res://Assets/Sprites/BattleSprites/PCs/WarriorBattle.png" id="1_clr4r"]
+[ext_resource type="Texture2D" uid="uid://bne4wfv8fgmvk" path="res://Assets/Sprites/BattleSprites/CombatEffects/RPGLockOnSheet.png" id="2_adhwx"]
+[ext_resource type="StyleBox" uid="uid://b521bendmr6b8" path="res://Assets/Styles/Bars/BarBG.tres" id="3_2yyqr"]
+[ext_resource type="StyleBox" uid="uid://50yu22laisjx" path="res://Assets/Styles/Bars/HPBar.tres" id="4_oc4ca"]
+[ext_resource type="FontFile" uid="uid://bu64if06n8ogu" path="res://Assets/MainFont.ttf" id="5_acmw8"]
+[ext_resource type="PackedScene" uid="uid://dwsvi6nc40vfn" path="res://Scenes/Party/action_pane.tscn" id="6_hnycv"]
+[ext_resource type="PackedScene" uid="uid://bw1f01bfdps64" path="res://Scenes/Combat/attack_sprite.tscn" id="8_l5w2n"]
+[ext_resource type="AudioStream" uid="uid://0ifh00uodwsk" path="res://Assets/Audio/Attack Hit 1.wav" id="9_fjy3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myc1v"]
+atlas = ExtResource("2_adhwx")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qf0o"]
+atlas = ExtResource("2_adhwx")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnme8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myc1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qf0o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_otmeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wopc8"]
+resource_name = "TakeDamage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fahdt"]
+_data = {
+"RESET": SubResource("Animation_otmeu"),
+"TakeDamage": SubResource("Animation_wopc8")
+}
+
+[node name="Warrior" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_8c7sq")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_clr4r")
+flip_h = true
+
+[node name="Focus" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(3, 1)
+sprite_frames = SubResource("SpriteFrames_fnme8")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = -40.0
+offset_top = -60.0
+offset_right = 52.0
+offset_bottom = -33.0
+theme_override_styles/background = ExtResource("3_2yyqr")
+theme_override_styles/fill = ExtResource("4_oc4ca")
+max_value = 150.0
+value = 150.0
+show_percentage = false
+
+[node name="HPText" type="Label" parent="HPBar"]
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 26.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_acmw8")
+text = "HP: 150/150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fahdt")
+}
+
+[node name="ActionPane" parent="." instance=ExtResource("6_hnycv")]
+visible = false
+offset_left = 65.0
+offset_top = -65.0
+offset_right = 160.0
+offset_bottom = 60.0
+
+[node name="AttackSprite" parent="." instance=ExtResource("8_l5w2n")]
+visible = false
+position = Vector2(75, 0)
+
+[node name="TurnDelay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -55.0
+offset_top = 37.0
+offset_right = 190.0
+offset_bottom = 88.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.879678, 0, 0.165024, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_acmw8")
+theme_override_font_sizes/font_size = 40
+text = "The Warrior"
+horizontal_alignment = 1
+
+[node name="AttackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_fjy3e")
+volume_db = -5.0
+
+[connection signal="animation_finished" from="AttackSprite" to="." method="_on_attack_sprite_animation_finished"]
+[connection signal="timeout" from="TurnDelay" to="." method="_on_turn_delay_timeout"]

@@ -1,0 +1,15 @@
+~ Info
+set Global.InDialogue = true
+The Cleric: So... how are you guys faring?
+The Warrior: Hrmph. I could take a hundred more enemies.
+The Mage: The Dark Lord...
+The Mage: I wonder why he fell to such an evil path...
+The Mage: Plunging our world into darkness...
+The Thief: Hey, no use worrying about it now!
+The Thief: We've just gotta defeat this guy!
+The Cleric: She's right.
+The Cleric: We can do this together.
+The Warrior: We can do this!
+The Mage: Let's just keep pressing onwards.
+set Global.InDialogue = false
+=> END

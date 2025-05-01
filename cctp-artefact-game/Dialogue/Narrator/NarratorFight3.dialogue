@@ -1,0 +1,10 @@
+~ this_is_a_node_title
+I don't know what you think you're doing, {{Global.player_name}}.
+But listen to me.
+You need to stop this.
+If you don't, this game will fall apart!
+set Events.FinalTalk = false
+set Global.PlayerTurn = 0
+set Events.FinalTNum = 4
+set Events.FinalTOnce = true
+=> END

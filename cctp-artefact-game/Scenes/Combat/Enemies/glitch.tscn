@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhjv4u1wcajc7"]
+
+[ext_resource type="Texture2D" uid="uid://d0jfbruuiv5uh" path="res://Assets/Meta/SpriteGlitch.png" id="2_fc7f8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym7f1"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(266, 240, 133, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y37r"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(665, 120, 133, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqu4d"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(266, 480, 133, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckhkp"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(133, 120, 133, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh56s"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(399, 0, 133, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nlt3"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(665, 480, 133, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sqo3"]
+atlas = ExtResource("2_fc7f8")
+region = Rect2(0, 480, 133, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sk5n2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym7f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y37r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqu4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckhkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh56s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nlt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sqo3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Glitch" type="Node2D"]
+z_index = 5
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.2, 3.1)
+scale = Vector2(0.5, 0.551)
+sprite_frames = SubResource("SpriteFrames_sk5n2")
+autoplay = "default"
+frame_progress = 0.576353
+flip_h = true
+
+[node name="GLButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -34.4
+offset_top = -31.2
+offset_right = 5.6
+offset_bottom = 8.8
+scale = Vector2(1.7, 1.7)

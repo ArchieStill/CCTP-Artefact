@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://3a168apihm5k"
+path="res://.godot/imported/PreACT2.dialogue-b8d93bed750d916921e645d6fef57100.tres"
+
+[deps]
+
+source_file="res://Dialogue/PreACT2.dialogue"
+dest_files=["res://.godot/imported/PreACT2.dialogue-b8d93bed750d916921e645d6fef57100.tres"]
+
+[params]
+
+defaults=true

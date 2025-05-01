@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c0xu2vb7mbn68"
+path="res://.godot/imported/LavaForeshadow.dialogue-ebb7caf94058e7d70f0c1658b28ed0e3.tres"
+
+[deps]
+
+source_file="res://Dialogue/LavaForeshadow.dialogue"
+dest_files=["res://.godot/imported/LavaForeshadow.dialogue-ebb7caf94058e7d70f0c1658b28ed0e3.tres"]
+
+[params]
+
+defaults=true

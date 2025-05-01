@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cadw54i07ulbf"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/battle_group.gd" id="1_6i32e"]
+[ext_resource type="PackedScene" uid="uid://b337v5beru4kn" path="res://Scenes/Combat/Enemies/gargoyle.tscn" id="2_po886"]
+[ext_resource type="VideoStream" path="res://Assets/Meta/GlitchEffect.ogv" id="4_d7ayd"]
+[ext_resource type="PackedScene" uid="uid://bhjv4u1wcajc7" path="res://Scenes/Combat/Enemies/glitch.tscn" id="4_klcn4"]
+[ext_resource type="AudioStream" uid="uid://dpyvttinkgb24" path="res://Assets/Audio/GlitchSFX.mp3" id="5_s6tx7"]
+
+[node name="Battle4Group" type="Node2D"]
+script = ExtResource("1_6i32e")
+
+[node name="Group" type="Node" parent="."]
+
+[node name="Glitched" parent="Group" instance=ExtResource("2_po886")]
+visible = false
+position = Vector2(852, 148)
+
+[node name="Gargoyle2" parent="Group" instance=ExtResource("2_po886")]
+position = Vector2(851, 339)
+
+[node name="Gargoyle3" parent="Group" instance=ExtResource("2_po886")]
+position = Vector2(854, 541)
+
+[node name="Glitch" parent="." instance=ExtResource("4_klcn4")]
+position = Vector2(850, 112)
+
+[node name="ScreenGlitch" type="VideoStreamPlayer" parent="."]
+visible = false
+z_index = 200
+offset_left = -71.0
+offset_top = -31.0
+offset_right = 1209.0
+offset_bottom = 689.0
+stream = ExtResource("4_d7ayd")
+
+[node name="GlitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_s6tx7")
+
+[connection signal="mouse_entered" from="Glitch/GLButton" to="." method="_on_gl_button_mouse_entered"]
+[connection signal="finished" from="ScreenGlitch" to="." method="_on_screen_glitch_finished"]
+
+[editable path="Glitch"]

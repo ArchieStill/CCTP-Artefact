@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://clbusmjftwtj8"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/final_tips.gd" id="1_d0gld"]
+[ext_resource type="FontFile" uid="uid://bu64if06n8ogu" path="res://Assets/MainFont.ttf" id="2_7dowj"]
+
+[node name="FinalTips" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d0gld")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.192157, 0.192157, 0.705882)
+
+[node name="Welcome" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.5
+offset_top = -224.0
+offset_right = 374.5
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "HOW TO PLAY"
+horizontal_alignment = 1
+
+[node name="Overall" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -93.0
+offset_right = 158.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "- Press A and D to move
+- Press Space to jump
+- Click to attack"
+
+[node name="ClassAbilities" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = 46.0
+offset_right = 838.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 25
+text = "Beat the game, "
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.5
+offset_top = -148.0
+offset_right = 102.5
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_7dowj")
+theme_override_font_sizes/font_size = 40
+text = "CONTINUE"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,9 @@
+~ this_is_a_node_title
+The Mage: I can feel it...
+The Mage: We're close to the dragon.
+The Warrior: Yeah! I'm ready to bash that dragon up!
+The Cleric: Are we all ready?
+The Thief: Ready as we'll ever be!
+The Warrior: Let's go, everyone!
+set Global.InDialogue = false
+=> END
