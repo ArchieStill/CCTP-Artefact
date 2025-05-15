@@ -5,7 +5,7 @@ extends Node
 @onready var OneDeath: bool = false
 @onready var TwoDeath: bool = false
 
-@onready var ACT2: bool = true
+@onready var ACT2: bool = false
 @onready var Cutscene: bool = false
 @onready var Narrator: bool = false
 
